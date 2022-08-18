@@ -8,14 +8,14 @@ import { getPosts } from './actions/posts';
 import useStyles from './styles';
 
 function App() {
-  const  [currentId , setCurrentId] =useState(null);
+  const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
   // to dispatch an action
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
-  
+  }, [currentId, dispatch]);
+
   return (
     <Container maxwidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
@@ -29,7 +29,7 @@ function App() {
               <Posts setCurrentId={setCurrentId} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId}/>
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
         </Container>

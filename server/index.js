@@ -22,16 +22,6 @@ mongoose.connection.on("error", (err) => {
     console.log("mongodb failed with", err);
 });
 
-
-
-
-
-
-
-
-
-
-
 //server listening
 const port = process.env.PORT || 5000;
 
