@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-
+import Navbar from './components/Navbar/Navbar';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import { getPosts } from './actions/posts';
@@ -18,10 +18,7 @@ function App() {
 
   return (
     <Container maxwidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">Create Your Notes</Typography>
-        <img className={classes.image} src="https://raw.githubusercontent.com/doniaskima/challenge-05-websites-with-reactjs/let's-code-website/src/images/hero-girl.png" alt="coding" height="100" width="200" />
-      </AppBar>
+      <Navbar/>
       <Grow in>
         <Container>
           <Grid container  justify="spase-between" alignItems="stretch" spacing={3}>
