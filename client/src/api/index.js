@@ -1,6 +1,15 @@
 import axios from "axios";
 const API = axios.create({ baseURL: "http://localhost:5000" });
 
+API.interceptors.request.use((req) => {
+    if (localStorage.getItem("profile")) {
+        req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("profile")).token
+    }`;
+    }
+
+    return req;
+});
 //return all the posts that we currently have in the databse
 //get call to our url
 export const fetchPosts = () => API.get("/posts");

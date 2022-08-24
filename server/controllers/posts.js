@@ -85,10 +85,8 @@ export const likePost = async(req, res) => {
     const index = post.likes.findIndex((id) => id === String(req.userId));
 
     if (index === -1) {
-        //like the post
         post.likes.push(req.userId);
     } else {
-        //dislike the post
         post.likes = post.likes.filter((id) => id !== String(req.userId));
     }
     const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
